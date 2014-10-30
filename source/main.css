@@ -1,0 +1,67 @@
+
+@import url('app/layout.css');
+
+body {
+  margin: 0;
+  overflow: hidden;
+  background: black;
+}
+
+body * {
+  /* box-shadow: 0 0 1px blue; */
+  box-sizing: border-box;
+}
+
+.title {
+    height: 40px;
+    line-height: 40px;
+    font-size: 20px;
+    font-family: Optima;
+    width: 400px;
+    margin-top: -20px;
+    margin-left: -200px;
+    position: absolute;
+    transition: 200ms;
+    background: rgb(15, 22, 90);
+    color: white;
+    padding: 0 1em;
+    cursor: pointer;
+    border-radius: 3px;
+    -webkit-user-select: none;
+}
+
+.title:hover {
+    background: rgb(57, 47, 123);
+}
+
+.title.is-focused {
+    box-shadow: 0 0 7px 2px rgba(255, 255, 255, 1);
+}
+
+.content {
+    position: fixed;
+    background: rgb(20, 73, 22);
+    transition: 400ms;
+    box-shadow: 0 0 10px 3px rgb(18, 18, 18);
+    color: white;
+    line-height: 2em;
+    padding: 0.5em 2em;
+    font-size: 40px;
+    font-family: Optima, Hiragino;
+}
+
+.line {}
+
+a.link {
+    color: rgb(160, 160, 237);
+    display: block;
+    overflow-x: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+pre.code {
+    margin: 0;
+    font-size: 24px;
+    line-height: 1.6em;
+}

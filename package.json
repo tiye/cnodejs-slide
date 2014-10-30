@@ -27,10 +27,10 @@
     "run-sequence": "^0.3.6",
     "vinyl-buffer": "0.0.0",
     "vinyl-source-stream": "^0.1.1",
-    "vinyl-transform": "0.0.1"
+    "vinyl-transform": "0.0.1",
+    "shortid": "^2.1.2"
   },
   "description": "A slide",
-  "dependencies": {},
   "repository": {
     "type": "git",
     "url": "https://github.com/jiyinyiyong/cnodejs-slide.git"

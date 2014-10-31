@@ -3,6 +3,8 @@ React = require 'react'
 $ = React.DOM
 $$ = require '../util/helper'
 
+Timer = require './timer'
+
 slides = require './slides'
 rate = 0.9
 
@@ -13,7 +15,7 @@ module.exports = React.createFactory React.createClass
   displayName: 'app-layout'
 
   getInitialState: ->
-    at: 0
+    at: @props.data.at
     focus: no
 
   componentDidMount: ->
@@ -40,21 +42,23 @@ module.exports = React.createFactory React.createClass
     nextOne = @state.at + 1
     if nextOne < slides.length
       @setState at: nextOne
+      @props.changeAt nextOne
 
   goPrev: ->
     prevOne = @state.at - 1
     if prevOne >= 0
       @setState at: prevOne
+      @props.changeAt prevOne
 
-  jump: (index) ->
-    @setState at: index
+  jump: (index, focus) ->
+    @setState at: index, focus: focus
 
   renderTitle: (title, index) ->
     if @state.focus
-      left = 200
+      left = 300
     else
       left = 400
-    top = cy() + (index - @state.at) * 60
+    top = cy() + (index - @state.at) * 80
     $.div
       className: $$.concat 'title',
         if @state.at is index then 'is-focused'
@@ -62,7 +66,8 @@ module.exports = React.createFactory React.createClass
       style:
         left: "#{left}px"
         top: "#{top}px"
-      onClick: => @jump index
+      onClick: =>
+        @jump index, no
       title
 
   renderContent: (content, index) ->
@@ -88,6 +93,8 @@ module.exports = React.createFactory React.createClass
         top: "#{top}px"
         width: "#{rate * 100}%"
         height: "#{rate * 100}%"
+      onClick: =>
+        @jump index, yes
       content
 
   render: ->
@@ -98,6 +105,8 @@ module.exports = React.createFactory React.createClass
       contents.push @renderContent slide.content, index
 
     $.div className: 'app-layout',
-      @state.at
       titles
       contents
+      Timer
+        data: new Date @props.data.time
+        onClick: @props.changeTime

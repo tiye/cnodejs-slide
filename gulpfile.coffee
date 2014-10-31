@@ -140,7 +140,7 @@ gulp.task 'rsync', ->
     src: '.'
     recursive: true
     args: ['--verbose']
-    dest: "tiye:~/repo/workflow"
+    dest: "tiye:~/repo/cnodejs-slide"
     deleteAll: yes
     exclude: [
       'node_modules/'

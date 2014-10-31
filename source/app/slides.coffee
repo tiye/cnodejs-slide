@@ -11,13 +11,17 @@ link = (x) ->
 code = (x) ->
   $.pre className: 'code', x
 
+pic = (x) ->
+  $.img src: x
+
 module.exports = [
   title: '关于我'
   content: $.div className: 'slide',
     line 'ChenYong, 题叶, CoffeeScript, Go'
+    pic 'http://tp1.sinaimg.cn/1651843872/180/40048616024/1'
+    link 'http://tiye.me'
     line 'Teambition, 前端, 单页面应用'
     line 'Node.js 做聊天工具, Socket.IO'
-    link 'http://tiye.me'
 ,
   title: '关于分享'
   content: $.div className: 'slide',
@@ -27,14 +31,15 @@ module.exports = [
     line 'React 实现的'
     line 'Todolist, 只是看一下代码, 3 个小时'
 ,
-  title: '长什么样子'
+  title: 'React'
   content: $.div className: 'slide',
     code """
-React.render(
-  <h1>Hello, world!</h1>,
-  document.getElementById('example')
-);
-"""
+      React.render(
+        <h1>Hello, world!</h1>,
+        document.getElementById('example')
+      );
+      """
+    pic 'http://oss.org.cn/attachments/2013/12/1_201312251544342d00D.jpg'
 ,
   title: 'React 是什么'
   content: $.div className: 'slide',
@@ -48,6 +53,8 @@ React.render(
     line 'Component, 类似模版的 Partial'
     line '基于 DOM, 能处理事件, 不是整个刷新'
     code 'React.createClass'
+    line '不可变的属性 props, 状态 state, setState'
+    link 'https://github.com/uberVU/react-guide/blob/master/props-vs-state.md'
 ,
   title: '什么是 JSX'
   content: $.div className: 'slide',
@@ -79,6 +86,12 @@ React.render(
     link 'https://github.com/facebook/flux'
     link 'http://fluxxor.com/'
 ,
+  title: '架构图'
+  content: $.div className: 'slide',
+    pic 'http://www.infoq.com/resource/news/2014/05/facebook-mvc-flux/en/resources/flux-react-mvc.png'
+    line '变成'
+    pic 'http://www.infoq.com/resource/news/2014/05/facebook-mvc-flux/en/resources/flux-react.png'
+,
   title: '解决什么问题?'
   content: $.div className: 'slide',
     line '更好地模块化, 更容易维护, 低版本浏览器'
@@ -87,26 +100,28 @@ React.render(
 ,
   title: '整个页面更新'
   content: $.div className: 'slide',
-    line '手动更新, 会有太多的问题'
+    line '初衷, XHP 后端绘制页面的方式带到前端'
+    line 'Model Driven View 带来效率提升, 比如 MVVM'
     line '就像服务端渲染的页面, 但是不会丢失用户浏览的状态'
-    line '和 Angular 很像'
 ,
   title: '关于性能'
   content: $.div className: 'slide',
-    line '批量更新'
-    line 'Om, 不可变数据, '
-    line 'shouldComponentUpdate'
+    line 'DOM 操作默认使用优化, 比如批量更新'
+    line 'Om(ClojureScript), 不可变数据'
+    line 'shouldComponentUpdate 优化减少刷新'
 ,
   title: '用状态取代过程'
   content: $.div className: 'slide',
     line 'Facebook 的例子, 数据被其他的代码改了, 不容易维护'
+    line '界面对应 props 和 state, 更有预测性'
     line '编程思想更清晰, 服务器渲染过模版就知道'
+    line '缺点: 没有事件传递, 共享事件和方法逐个模块传入, 可能很深'
 ,
   title: 'DOM 的限制较多'
   content: $.div className: 'slide',
     line 'Component 的父子关系, 限制了 DOM 结构'
     line '如果用 jQuery, 更容易出问题, 但很方便实现功能'
-    line '发现 CSS trantion 被 DOM 的增加删除打断'
+    line '发现 CSS transition 被 DOM 的增加删除打断'
     line 'Famo.us'
 ,
   title: '谁在用'
@@ -118,6 +133,7 @@ React.render(
 ,
   title: '前后端共用代码'
   content: $.div className: 'slide',
+    line '浏览器'
     code """
       ReactComponent render(
         ReactElement element,
@@ -125,18 +141,19 @@ React.render(
         [function callback]
       )
       """
+    line '服务器'
     code 'string renderToString(ReactComponent component)'
 ,
   title: '看一个 Todolist 的实现'
   content: $.div className: 'slide',
-    line '禁用 JavaScript, 渲染'
-    line '开启 JavaScript, 渲染'
-    line '代码'
-    link 'https://github.com/Memkits/react-todolist'
     link 'http://facebook.github.io/react/docs/tutorial.html'
     link 'https://github.com/tastejs/todomvc/tree/gh-pages/examples/react'
+    line '服务器/浏览器渲染, 禁用/开启 JavaScript'
+    link 'http://repo.tiye.me:3100'
+    link 'https://github.com/mvc-works/isomorphic-todolist'
+    link 'https://github.com/Memkits/react-todolist'
 ,
-  title: '更多'
+  title: 'Q&A'
   content: $.div className: 'slide',
     link 'http://weibo.com/reactchina'
     link 'http://react-china.org'

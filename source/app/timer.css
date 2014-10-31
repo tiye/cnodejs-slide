@@ -1,0 +1,15 @@
+
+.timer {
+    color: white;
+    position: fixed;
+    right: 40px;
+    bottom: 40px;
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+    background: rgb(81, 69, 69);
+    border-radius: 20px;
+    line-height: 40px;
+    text-align: center;
+    cursor: pointer;
+}

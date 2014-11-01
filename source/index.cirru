@@ -4,6 +4,7 @@ html
   head
     title "About React"
     meta (:charset utf-8)
+    link (:rel icon) (:href http://facebook.github.io/react/favicon.ico)
     script(:src build/vendor.min.js)
     @if (@ dev)
       @block
